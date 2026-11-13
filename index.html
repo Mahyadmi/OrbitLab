@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>OrbitLab — gravity sandbox</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <canvas id="sky"></canvas>
+
+  <div class="left-stack">
+    <header class="panel hud">
+      <h1>OrbitLab</h1>
+      <dl>
+        <dt>Bodies</dt><dd id="stat-bodies">0</dd>
+        <dt>Particles</dt><dd id="stat-dust">0</dd>
+        <dt>Sim time</dt><dd id="stat-time">0</dd>
+        <dt>Energy drift</dt><dd id="stat-energy">–</dd>
+        <dt>FPS</dt><dd id="stat-fps">–</dd>
+      </dl>
+    </header>
+
+    <section class="panel inspector" id="inspector" hidden>
+      <h2><span class="dot" id="insp-dot"></span><span id="insp-kind">Body</span></h2>
+      <dl>
+        <dt>Mass</dt><dd id="insp-mass"></dd>
+        <dt>Radius</dt><dd id="insp-radius"></dd>
+        <dt>Speed</dt><dd id="insp-speed"></dd>
+        <dt>Orbiting</dt><dd id="insp-host"></dd>
+        <dt>Distance</dt><dd id="insp-dist"></dd>
+        <dt>Eccentricity</dt><dd id="insp-ecc"></dd>
+        <dt>Period</dt><dd id="insp-period"></dd>
+      </dl>
+      <div class="row">
+        <button id="btn-unfollow">Stop following</button>
+        <button id="btn-delete" class="danger">Delete</button>
+      </div>
+    </section>
+  </div>
+
+  <aside class="panel help">
+    <p><b>Drag</b> to launch a body (pull back like a slingshot)</p>
+    <p><b>Auto-orbit</b> on: <b>click</b> to drop a body into a perfect circular orbit</p>
+    <p><b>Right-drag</b> or <b>Shift-drag</b> to pan · <b>Scroll</b> to zoom</p>
+    <p><b>Click</b> a body to follow and inspect it</p>
+    <p>Hit something hard enough and it <b>shatters</b></p>
+    <p class="keys"><kbd>Space</kbd> pause <kbd>T</kbd> trails <kbd>G</kbd> grid <kbd>O</kbd> auto-orbit
+      <kbd>M</kbd> sound <kbd>F</kbd> follow centre <kbd>Del</kbd> delete <kbd>C</kbd> clear
+      <kbd>1</kbd>–<kbd>6</kbd> scenes <kbd>+</kbd>/<kbd>−</kbd> speed</p>
+  </aside>
+
+  <footer class="panel toolbar">
+    <div class="group">
+      <span class="label">Scene</span>
+      <button data-preset="solar">1 · Solar system</button>
+      <button data-preset="binary">2 · Binary star</button>
+      <button data-preset="figure8">3 · Figure-8</button>
+      <button data-preset="galaxies">4 · Galaxy collision</button>
+      <button data-preset="blackhole">5 · Black hole</button>
+      <button data-preset="sandbox">6 · Sandbox</button>
+    </div>
+    <div class="group">
+      <span class="label">Launch</span>
+      <button data-launch="asteroid">Asteroid</button>
+      <button data-launch="comet">Comet</button>
+      <button data-launch="planet">Planet</button>
+      <button data-launch="giant">Giant</button>
+      <button data-launch="star">Star</button>
+      <button data-launch="blackhole">Black hole</button>
+    </div>
+    <div class="group">
+      <button id="btn-pause">Pause</button>
+      <label class="speed">Speed <input id="speed" type="range" min="0.1" max="4" step="0.1" value="1"><span id="speed-val">1.0×</span></label>
+      <label class="check"><input id="trails" type="checkbox" checked> Trails</label>
+      <label class="check"><input id="grid" type="checkbox"> Grid</label>
+      <button id="btn-orbit">Auto-orbit</button>
+      <button id="btn-follow">Follow centre</button>
+      <button id="btn-sound">Sound on</button>
+      <button id="btn-clear">Clear</button>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
