@@ -4,7 +4,9 @@ An interactive gravity sandbox that runs in the browser. Fling planets and stars
 
 Plain HTML, CSS and JavaScript on a `<canvas>`. No build step, no dependencies.
 
-## Run it
+**▶ Play it now: <https://mahyadmi.github.io/OrbitLab/>**
+
+## Run it locally
 
 ```bash
 cd OrbitLab
